@@ -1,5 +1,4 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     font-family: 'georgia', serif;
 }
@@ -11,6 +10,7 @@ body{
     background-color: #ff9a68;
     color: #ffffff;
 }
+
 
 header{
     padding: 2rem 1rem;
