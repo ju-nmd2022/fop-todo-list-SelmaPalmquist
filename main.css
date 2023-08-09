@@ -104,6 +104,11 @@ margin-bottom: 1rem;
 
 #tasks .task .content .text:not(:read-only){
     color: gray;
+    
+}
+
+#tasks .task .content {
+    flex: 1 1 0%;
 }
 
 #tasks .task .actions{
