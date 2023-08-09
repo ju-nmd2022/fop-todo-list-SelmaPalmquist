@@ -1,39 +1,6 @@
 
-let taskBar = document.getElementById("new-task-form");
-let taskInput = document.getElementById("new-task-input");
-let listed = document.getElementById("tasks");
-let addButton = document.getElementById("new-task-submit");
+// used help from this video https://www.youtube.com/watch?v=6eFwtaZf6zc&t=0s
 
-
-//function get storage
-getTaskStorage(taskListMemory);
-
-//function listen for click on "add task" button
-addButton.addEventListener('click', () =>{
-    if(inputTask.value.length > 0){
-        newTask("", taskInput.value, false, false);
-        clearInputText();
-}});
-
-//function clear input text
-function clearInputText(){
-    taskInput.value="";
-}
-
-function newTask(){
-    const taskElement = createTaskElement(task);
-    listElement.appendChild(taskElement);
-    saveTask(task);
-}
-
-function saveTask(task) {
-    const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    savedTasks.push(task);
-    localStorage.setItem('tasks', JSON.stringify(savedTasks));
-  }
-
-
-/*
 window.addEventListener('load', () => {
   const taskbar = document.querySelector('#new-task-form');
   const input = document.querySelector('#new-task-input');
@@ -131,11 +98,3 @@ window.addEventListener('load', () => {
 
   initializeTasks();
 });
-
-
-
-*/
-    
-
-
- 
