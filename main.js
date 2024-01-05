@@ -66,18 +66,17 @@ window.addEventListener('load', () => {
     taskActionsElement.appendChild(taskDeleteElement);
 
     taskDoneElement.addEventListener('click', () => {
-      if (taskDoneElement.innerText.toLowerCase() === 'done') {
-        taskInputElement.styleline-through;
-        taskInputElement.focus();
-        taskDoneElement.innerText = 'Save';
+      if (taskInputElement.style.textDecoration !== 'line-through') {
+        taskInputElement.style.textDecoration = 'line-through';
+        taskInputElement.style.color = 'grey';
+        taskDoneElement.innerText = 'Go back';
       } else {
-        taskInputElement.setAttribute('readonly', 'readonly');
+        taskInputElement.style.textDecoration = 'none';
+        taskInputElement.style.color = 'black';
         taskDoneElement.innerText = 'Done';
       }
     });
-
     
-
 /*
     taskDoneElement.addEventListener('click', () => {
       if (taskDoneElement.innerText.toLowerCase() === 'done') {
