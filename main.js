@@ -35,6 +35,7 @@ window.addEventListener('load', () => {
     localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   }
 
+
   function createTaskElement(task) {
     const taskElement = document.createElement('div');
     taskElement.classList.add('task');
@@ -54,26 +55,42 @@ window.addEventListener('load', () => {
     taskActionsElement.classList.add('actions');
     taskElement.appendChild(taskActionsElement);
 
-    const taskEditElement = document.createElement('button');
-    taskEditElement.classList.add('edit');
-    taskEditElement.innerHTML = 'Edit';
-    taskActionsElement.appendChild(taskEditElement);
+    const taskDoneElement = document.createElement('button');
+    taskDoneElement.classList.add('done');
+    taskDoneElement.innerHTML = 'Done';
+    taskActionsElement.appendChild(taskDoneElement);
 
     const taskDeleteElement = document.createElement('button');
     taskDeleteElement.classList.add('delete');
     taskDeleteElement.innerHTML = 'Delete';
     taskActionsElement.appendChild(taskDeleteElement);
 
-    taskEditElement.addEventListener('click', () => {
-      if (taskEditElement.innerText.toLowerCase() === 'edit') {
-        taskInputElement.removeAttribute('readonly');
+    taskDoneElement.addEventListener('click', () => {
+      if (taskDoneElement.innerText.toLowerCase() === 'done') {
+        taskInputElement.styleline-through;
         taskInputElement.focus();
-        taskEditElement.innerText = 'Save';
+        taskDoneElement.innerText = 'Save';
       } else {
         taskInputElement.setAttribute('readonly', 'readonly');
-        taskEditElement.innerText = 'Edit';
+        taskDoneElement.innerText = 'Done';
       }
     });
+
+    
+
+/*
+    taskDoneElement.addEventListener('click', () => {
+      if (taskDoneElement.innerText.toLowerCase() === 'done') {
+        taskInputElement.removeAttribute('readonly');
+        taskInputElement.focus();
+        taskDoneElement.innerText = 'Save';
+      } else {
+        taskInputElement.setAttribute('readonly', 'readonly');
+        taskDoneElement.innerText = 'Done';
+      }
+    });
+
+    */
 
     taskDeleteElement.addEventListener('click', () => {
       deleteTask(taskElement);
@@ -98,3 +115,4 @@ window.addEventListener('load', () => {
 
   initializeTasks();
 });
+
