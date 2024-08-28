@@ -1,7 +1,9 @@
 body {
-    margin: 0;
-    height: 100%;
-    background-color: bisque;
+    background-image: url(images/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: auto;
 }
 
 .container{
