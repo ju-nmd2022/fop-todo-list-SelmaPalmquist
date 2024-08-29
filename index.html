@@ -8,18 +8,29 @@
     <title>Document</title>
 </head>
 <body> 
+    <header>
     <div class="container"> 
         <form id="submitTask"> 
         <h1> TO-DO LIST</h1>
        <input class="form" type = "text" placeholder="What do you want to do today?"> 
-       <input class="button" type = "submit">
+       <button type="submit" class="add-button" value="Add task">Add task</button>
         </form>
     </div>
+</header>
 
-    <div class="listedTasks"> 
-    <input type="text" class="text" value="Task goes here"
-        readonly/>
-    </div>
+    <main>
+        <section class="listedtasks">
+        <h2>TASKS</h2>
+
+             <div class="task">
+                    <input type="text" class="taskbar" placeholder="Task goes here"
+                    readonly/>
+                    <button class="done-button">Done</button>
+                    <button class="del-button">Delete</button>
+            </div>
+           
+    </section>
+    </main>
 </body>
 </html>
 
