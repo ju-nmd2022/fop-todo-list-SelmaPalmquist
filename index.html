@@ -5,8 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
+    <script src="script.js"></script>
+
     <title>Document</title>
 </head>
+
 <body> 
     <header>
     <div class="container"> 
@@ -19,17 +22,20 @@
 </header>
 
     <main>
-        <section class="listedtasks">
         <h2>TASKS</h2>
 
-             <div class="task">
-                    <input type="text" class="taskbar" placeholder="Task goes here"
-                    readonly/>
+             <div class="tasks">
+                <ul>
+                    <li>Todo list</li>
+                    <li class="checked">Web Dev project</li>
+                    <li>Write 4 texts</li>
+                    <li>Catch up on digital marketing</li>
+                  </ul>
+                  <div class="buttons">
                     <button class="done-button">Done</button>
-                    <button class="del-button">Delete</button>
+                    <button class="del-button">Delete</button> 
+                </div>     
             </div>
-           
-    </section>
     </main>
 </body>
 </html>

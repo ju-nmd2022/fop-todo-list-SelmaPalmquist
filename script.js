@@ -6,6 +6,4 @@ const input = document.querySelector('input');
       alert('Please write a task.');
       return;
     }
-
-
-
+    
