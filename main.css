@@ -41,7 +41,8 @@ h1{
 h2{
     color: #2b4861; 
     font-size: 30px;
-    margin-left: 100px;
+    margin-left: 200px;
+    margin-top: 50px;
 }
 
 
@@ -62,8 +63,8 @@ ul {
     list-style-type: none;
     border-radius: 5px;
     margin-bottom: 3px;
-    margin-left: 100px;
-    width: 600px;
+    margin-left: 200px;
+    width: 700px;
   }
 
   ul li:hover {
@@ -84,9 +85,11 @@ ul li.checked {
     padding: 5px;
     border: none;
     border-radius: 5px;
-    float: left;
-   
+    margin-left: 5%;  
 }
+
+/* Not sure whether to have it be a button or not
+<button class="done-button">Done</button>
 
 .done-button{
     background-color: rgb(220, 247, 209);
@@ -96,14 +99,11 @@ ul li.checked {
     border: none;
     border-radius: 5px;
 }
+*/
 
 .tasks{
     display: flex;
     
-}
-
-.buttons{
-    flex-basis: 100%;
 }
 
 
