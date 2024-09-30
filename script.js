@@ -1,52 +1,15 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const taskInput = document.getElementById('task-input');
-  const addTaskButton = document.getElementById('add-button');
-  const taskList = document.getElementById('task-list');
 
-  // Function to add a task
-  const addTask = () => {
-      const taskText = taskInput.value;
+function clickHandler(){
+  const inputElement = document.getElementById("task-input");
+  console.log("inputElement.value");
+}
 
-      if (taskText === "") {
-          alert("Please enter a task");
-          return;
-      }
+function loadHandler(){
+  const addButton = document.getElementById("add-button");
+  addButton.addEventListener("click", clickHandler);
 
-      // Create a new list item for the task
-      const taskItem = document.createElement('li');
-      taskItem.innerHTML = `
-          <span>${taskText}</span>
-          <button class="delete-task">Delete</button>
-      `;
-      
-      // Add a click event to toggle the 'complete' class
-      taskItem.querySelector('span').addEventListener('click', function() {
-          this.classList.toggle('complete');
-      });
-
-      // Add a click event to delete the task
-      taskItem.querySelector('.delete-task').addEventListener('click', function() {
-          taskItem.remove();
-      });
-
-      // Append the task to the list
-      taskList.appendChild(taskItem);
-
-      // Clear the input field
-      taskInput.value = "";
-  };
-
-  // Add task when the button is clicked
-  addTaskButton.addEventListener('click', addTask);
-
-  // Optionally: Add task when Enter key is pressed
-  taskInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-          addTask();
-      }
-  });
-});
-
+}
+window.addEventListener("load", loadHandler);
 
 
 /*const form = document.querySelector('#submitTask');
