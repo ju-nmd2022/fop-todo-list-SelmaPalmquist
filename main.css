@@ -13,37 +13,77 @@ body {
 h1{
     color: #2b4861;
     font-size: 70px;
+    display: flex;
+    justify-content: center;
     }
 
-.container{
-    display:flex;
-    justify-content: center;
-}
 
-.form{
+.task-input{
     background-color: white;
-    width: 80%;
-    height: 20%;
-    padding: 1%;
+    width: 550px;
+    height: 30px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
+    margin-left: 350px;
+    float: left;
 }
 
 .add-button{
-    background-color: white;
-    width: 17%;
-    height: 25%;
-    padding: 0;
+    background-color: #2b4861;
+    color: white;
+    width: 100px;
+    height: 50px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
+    float: right;
+    margin-right: 400px;
+}
+
+.task-list{
+    color: #2b4861; 
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(181, 207, 181);
 }
 
 h2{
     color: #2b4861; 
-    font-size: 30px;
+    font-size: 35px;
     margin-left: 200px;
     margin-top: 50px;
+    font-weight: bold;  
 }
+
+.container{
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.done-button{
+    background-color: rgb(164, 248, 151);
+    width: 100px;
+}
+
+/*<button onclick="doneTask()" class="done-button" id="done-button" value="Done task">Task Done</button>*/
+
+.remove-button{
+    background-color: rgb(253, 126, 126);
+    width: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* code borrowed from website - BEGIN
@@ -101,10 +141,7 @@ ul li.checked {
 }
 */
 
-.tasks{
-    display: flex;
-    
-}
+
 
 
   

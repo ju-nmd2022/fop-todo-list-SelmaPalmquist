@@ -1,4 +1,14 @@
+const tasks = ["task 1", "task 2", "task 3"];
+const taskListElement = documnt.getElementById("task-list");
 
+for (let task of tasks) {
+  const taskElement = document.createElement("div");
+  taskElement.innerHTML = task;
+  taskListElement.appendChild(taskElement);
+}
+
+
+/*
 function clickHandler(){
   const inputElement = document.getElementById("task-input");
   console.log("inputElement.value");
@@ -12,8 +22,7 @@ function loadHandler(){
 window.addEventListener("load", loadHandler);
 
 
-/*const form = document.querySelector('#submitTask');
-const input = document.querySelector('input');
+
 
 
     if (!task) {
