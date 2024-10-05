@@ -1,10 +1,18 @@
-const tasks = ["task 1", "task 2", "task 3"];
-const taskListElement = documnt.getElementById("task-list");
+const tasks = [];
+const taskListElement = document.getElementById("task-list");
 
 for (let task of tasks) {
   const taskElement = document.createElement("div");
   taskElement.innerHTML = task;
+
+  const addTaskElement = document.getElementById("add-button");
+  addtaskElement.onclick
+
   taskListElement.appendChild(taskElement);
+}
+
+function addToTaskList () {
+  console.log("I was clicked");
 }
 
 
