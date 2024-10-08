@@ -45,7 +45,9 @@ h1{
     color: #2b4861; 
     font-size: 20px;
     font-weight: bold;
-    background-color: rgb(181, 207, 181);
+    margin-top: 10px;
+    border: solid;
+
 }
 
 h2{
