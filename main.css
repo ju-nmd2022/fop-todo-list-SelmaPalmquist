@@ -1,0 +1,147 @@
+* {
+    font-family: 'georgia', serif;
+}
+
+body {
+    background-image: url(images/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: auto;
+}
+
+h1{
+    color: #2b4861;
+    font-size: 70px;
+    display: flex;
+    justify-content: center;
+    }
+
+
+.task-input{
+    background-color: white;
+    width: 550px;
+    height: 30px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 350px;
+    float: left;
+}
+
+.add-button{
+    background-color: #2b4861;
+    color: white;
+    width: 100px;
+    height: 50px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    float: right;
+    margin-right: 400px;
+}
+
+.task-list{
+    color: #2b4861; 
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    border: solid;
+
+}
+
+h2{
+    color: #2b4861; 
+    font-size: 35px;
+    margin-left: 200px;
+    margin-top: 50px;
+    font-weight: bold;  
+}
+
+.container{
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.done-button{
+    background-color: rgb(164, 248, 151);
+    width: 100px;
+}
+
+.remove-button{
+    background-color: rgb(253, 126, 126);
+    width: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* code borrowed from website - BEGIN
+ Source: "How TO - Create a To Do List",
+ https://www.w3schools.com/howto/howto_js_todolist.asp
+*/
+ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul li {
+    cursor: pointer;
+    padding: 10px 8px 10px 10px;
+    background: #ffffff;
+    font-size: 14px;
+    list-style-type: none;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    margin-left: 200px;
+    width: 700px;
+  }
+
+  ul li:hover {
+    background: #ddd;
+  }
+
+ul li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+  }
+/* code borrowed from website - END */
+
+.del-button{
+    background-color: rgb(244, 194, 194);
+    width: 100px;
+    height: 35px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5%;  
+}
+
+/* Not sure whether to have it be a button or not
+<button class="done-button">Done</button>
+
+.done-button{
+    background-color: rgb(220, 247, 209);
+    width: 100px;
+    height: 35px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+*/
+
+
+
+
+  
