@@ -29,14 +29,14 @@ function addToTaskList () {
   removeButton.onclick = removeTask;
   cartElement.appendChild(removeButton);
 
-  /*
+  
   //mark tasks as done
   const doneButton = document.createElement("button");
   doneButton.innerText = "Done";
   doneButton.classList.add("done-button");
-  doneButton.onclick = doneTask;
+  doneButton.onclick = markTaskAsDone;
   cartElement.appendChild(doneButton);
-*/
+
   taskCartElement.appendChild(cartElement);
 }
 
@@ -45,12 +45,15 @@ function removeTask () {
   element.parentNode.removeChild(element); 
 }
 
-/*
 function markTaskAsDone () {
-  taskListElement.style.textDecoration = "line-through";
-  console.log("Task is marked as done.");
+  const taskElement = this.parentNode.querySelector("span");
+  if (taskElement.style.textDecoration === "line-through") {
+    taskElement.style.textDecoration = "none";
+  } else {
+    taskElement.style.textDecoration = "line-through";
+  }
 }
-*/
+
 
 
 /*
