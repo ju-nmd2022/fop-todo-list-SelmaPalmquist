@@ -25,14 +25,14 @@ function addToTaskList () {
   spanElement.innerText = this.innerText;
   cartElement.appendChild(spanElement);
   
-  //mark tasks as done
+  //done button
   const doneButton = document.createElement("button");
   doneButton.innerText = "Done";
   doneButton.classList.add("done-button");
   doneButton.onclick = markTaskAsDone;
   cartElement.appendChild(doneButton);
 
-  //remove button appears next to tasks in the list
+  //remove button
   const removeButton = document.createElement("button");
   removeButton.innerText = "Remove";
   removeButton.classList.add("remove-button");
@@ -40,11 +40,6 @@ function addToTaskList () {
   cartElement.appendChild(removeButton);
 
   taskCartElement.appendChild(cartElement);
-}
-
-function removeTask () {
-  const element = this.parentNode; 
-  element.parentNode.removeChild(element); 
 }
 
 function markTaskAsDone () {
@@ -56,7 +51,10 @@ function markTaskAsDone () {
   }
 }
 
-
+function removeTask () {
+  const element = this.parentNode; 
+  element.parentNode.removeChild(element); 
+}
 
 
 
