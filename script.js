@@ -1,20 +1,32 @@
 const tasks = ["task 1", "task 2", "task 3"];
 const taskListElement = document.getElementById("task-list");
-const addTaskButton = document.getElementById("add-button");
+let taskCartElement = document.getElementById("task-cart");
+
+let taskList = [];
+
 
 for (let task of tasks) {
   const taskElement = document.createElement("div");
-  taskElement.innerHTML = task;
-
+  taskElement.innerText = task;
+  taskListElement.appendChild(taskElement);
   taskElement.onclick = addToTaskList;
 
-  taskListElement.appendChild(taskElement);
 }
 
 function addToTaskList () {
   console.log("I was clicked");
+  taskCartElement.appendChild(this);
 }
 
+
+ //doneButtonElement.onclick = markTaskAsDone;
+//const addTaskButton = document.getElementById("add-button");
+/*
+function markTaskAsDone () {
+  taskListElement.style.textDecoration = "line-through";
+  console.log("Task is marked as done.");
+}
+*/
 
 /*
 function clickHandler(){
