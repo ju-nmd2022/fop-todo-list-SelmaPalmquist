@@ -14,8 +14,28 @@ for (let task of tasks) {
 }
 
 function addToTaskList () {
-  console.log("I was clicked");
-  taskCartElement.appendChild(this);
+  taskList.push(this.innerText);
+
+  const cartElement = document.createElement("div");
+
+  const spanElement = document.createElement("span");
+  spanElement.innerText = this.innerText;
+  cartElement.appendChild(spanElement);
+
+
+  const removeButton = document.createElement("button");
+  removeButton.innerText = "Remove";
+  removeButton.onclick = removeTask;
+  cartElement.appendChild(removeButton);
+
+  taskCartElement.appendChild(cartElement);
+ 
+  //console.log("I was clicked");
+  //taskCartElement.appendChild(this);
+}
+
+function removeTask () {
+  console.log(this);
 }
 
 
