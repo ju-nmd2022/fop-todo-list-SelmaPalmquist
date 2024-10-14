@@ -1,8 +1,9 @@
-const tasks = ["task 1", "task 2", "task 3"];
+//followed the Fruit Shop example provided by Garrit on https://pixelkind.github.io/foundationsofprogramming/programming/ 
+const tasks = ["task 1"];
 const taskListElement = document.getElementById("task-list");
 let taskCartElement = document.getElementById("task-cart");
-//const addTaskButton = document.getElementById("add-button");
-
+const taskForm = document.getElementById("task-form");
+const addTaskButton = document.getElementById("add-button");
 
 let taskList = [];
 
@@ -10,25 +11,19 @@ for (let task of tasks) {
   const taskElement = document.createElement("div");
   taskElement.innerText = task;
   taskListElement.appendChild(taskElement);
-  taskElement.onclick = addToTaskList;
+  addTaskButton.onclick = addToTaskList;
 }
 
 function addToTaskList () {
-  taskList.push(this.innerText);
+  event.preventDefault();
+  taskList.push(taskForm.innerText);
 
   const cartElement = document.createElement("div");
+  cartElement.classList.add("task-list");
 
   const spanElement = document.createElement("span");
   spanElement.innerText = this.innerText;
   cartElement.appendChild(spanElement);
-
-  //remove button appears next to tasks in the list
-  const removeButton = document.createElement("button");
-  removeButton.innerText = "Remove";
-  removeButton.classList.add("remove-button");
-  removeButton.onclick = removeTask;
-  cartElement.appendChild(removeButton);
-
   
   //mark tasks as done
   const doneButton = document.createElement("button");
@@ -36,6 +31,13 @@ function addToTaskList () {
   doneButton.classList.add("done-button");
   doneButton.onclick = markTaskAsDone;
   cartElement.appendChild(doneButton);
+
+  //remove button appears next to tasks in the list
+  const removeButton = document.createElement("button");
+  removeButton.innerText = "Remove";
+  removeButton.classList.add("remove-button");
+  removeButton.onclick = removeTask;
+  cartElement.appendChild(removeButton);
 
   taskCartElement.appendChild(cartElement);
 }
@@ -56,37 +58,89 @@ function markTaskAsDone () {
 
 
 
+
+
 /*
-function clickHandler(){
-  const inputElement = document.getElementById("task-input");
-  console.log("inputElement.value");
+//followed the Fruit Shop example provided by Garrit on https://pixelkind.github.io/foundationsofprogramming/programming/ 
+const tasks = ["task 1"];
+const taskListElement = document.getElementById("task-list");
+let taskCartElement = document.getElementById("task-cart");
+const taskForm = document.getElementById("task-form");
+const addTaskButton = document.getElementById("add-button");
+
+let taskList = [];
+
+for (let task of tasks) {
+  const taskElement = document.createElement("div");
+  taskElement.innerText = task;
+  taskListElement.appendChild(taskElement);
+  addTaskButton.onclick = addToTaskList;
 }
 
-function loadHandler(){
-  const addButton = document.getElementById("add-button");
-  addButton.addEventListener("click", clickHandler);
+function addToTaskList () {
+  event.preventDefault();
+  taskList.push(this.innerText);
 
+  const cartElement = document.createElement("div");
+  cartElement.classList.add("task-list");
+
+  const spanElement = document.createElement("span");
+  spanElement.innerText = this.innerText;
+  cartElement.appendChild(spanElement);
+  
+  //mark tasks as done
+  const doneButton = document.createElement("button");
+  doneButton.innerText = "Done";
+  doneButton.classList.add("done-button");
+  doneButton.onclick = markTaskAsDone;
+  cartElement.appendChild(doneButton);
+
+  //remove button appears next to tasks in the list
+  const removeButton = document.createElement("button");
+  removeButton.innerText = "Remove";
+  removeButton.classList.add("remove-button");
+  removeButton.onclick = removeTask;
+  cartElement.appendChild(removeButton);
+
+
+  taskCartElement.appendChild(cartElement);
+
+  
 }
-window.addEventListener("load", loadHandler);
+
+function removeTask () {
+  const element = this.parentNode; 
+  element.parentNode.removeChild(element); 
+}
+
+function markTaskAsDone () {
+  const taskElement = this.parentNode.querySelector("span");
+  if (taskElement.style.textDecoration === "line-through") {
+    taskElement.style.textDecoration = "none";
+  } else {
+    taskElement.style.textDecoration = "line-through";
+  }
+}
 
 
 
 
 
-    if (!task) {
-      alert('Please write a task.');
+
+
+ if (task) {
+    addToTaskList(task); 
+    taskInput.value = "";
+  } else {
+    alert('Please write a task.');
       return;
-    }
+  }
 
-
-    <ul>
-                    <li>Todo list</li>
-                    <li class="checked">Web Dev project</li>
-                    <li>Write 4 texts</li>
-                    <li>Catch up on digital marketing</li>
-                </ul>
-                
-                <div class="buttons">
-                    <button class="del-button">Delete</button> 
-                </div>     
     */
+
+
+
+
+
+
+  
