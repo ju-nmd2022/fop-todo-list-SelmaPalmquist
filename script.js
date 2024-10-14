@@ -1,16 +1,16 @@
 const tasks = ["task 1", "task 2", "task 3"];
 const taskListElement = document.getElementById("task-list");
 let taskCartElement = document.getElementById("task-cart");
+//const addTaskButton = document.getElementById("add-button");
+
 
 let taskList = [];
-
 
 for (let task of tasks) {
   const taskElement = document.createElement("div");
   taskElement.innerText = task;
   taskListElement.appendChild(taskElement);
   taskElement.onclick = addToTaskList;
-
 }
 
 function addToTaskList () {
@@ -22,31 +22,36 @@ function addToTaskList () {
   spanElement.innerText = this.innerText;
   cartElement.appendChild(spanElement);
 
-
+  //remove button appears next to tasks in the list
   const removeButton = document.createElement("button");
   removeButton.innerText = "Remove";
+  removeButton.classList.add("remove-button");
   removeButton.onclick = removeTask;
   cartElement.appendChild(removeButton);
 
+  /*
+  //mark tasks as done
+  const doneButton = document.createElement("button");
+  doneButton.innerText = "Done";
+  doneButton.classList.add("done-button");
+  doneButton.onclick = doneTask;
+  cartElement.appendChild(doneButton);
+*/
   taskCartElement.appendChild(cartElement);
- 
-  //console.log("I was clicked");
-  //taskCartElement.appendChild(this);
 }
 
 function removeTask () {
-  console.log(this);
+  const element = this.parentNode; 
+  element.parentNode.removeChild(element); 
 }
 
-
- //doneButtonElement.onclick = markTaskAsDone;
-//const addTaskButton = document.getElementById("add-button");
 /*
 function markTaskAsDone () {
   taskListElement.style.textDecoration = "line-through";
   console.log("Task is marked as done.");
 }
 */
+
 
 /*
 function clickHandler(){
