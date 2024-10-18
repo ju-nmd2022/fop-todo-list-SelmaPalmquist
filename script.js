@@ -1,8 +1,8 @@
-//followed the Fruit Shop example provided by Garrit on https://pixelkind.github.io/foundationsofprogramming/programming/ 
-const tasks = ["task 1"];
+//followed the Fruit Shop example provided by Garrit Shaap on https://pixelkind.github.io/foundationsofprogramming/programming/ 
+const tasks = [];
 const taskListElement = document.getElementById("task-list");
 let taskCartElement = document.getElementById("task-cart");
-const taskForm = document.getElementById("task-form");
+const taskInput = document.getElementById("task-input");
 const addTaskButton = document.getElementById("add-button");
 
 let taskList = [];
@@ -11,18 +11,27 @@ for (let task of tasks) {
   const taskElement = document.createElement("div");
   taskElement.innerText = task;
   taskListElement.appendChild(taskElement);
-  addTaskButton.onclick = addToTaskList;
 }
 
-function addToTaskList () {
+addTaskButton.addEventListener("click", addToTaskList);
+
+function addToTaskList(event) {
   event.preventDefault();
-  taskList.push(taskForm.innerText);
+
+  const taskText = taskInput.value.trim();
+
+  if(taskText === "") {
+    alert("Please enter a task.")
+    return;
+  }
+
+  taskList.push(taskText);
 
   const cartElement = document.createElement("div");
   cartElement.classList.add("task-list");
 
   const spanElement = document.createElement("span");
-  spanElement.innerText = this.innerText;
+  spanElement.innerText = taskText;
   cartElement.appendChild(spanElement);
   
   //done button
@@ -40,9 +49,12 @@ function addToTaskList () {
   cartElement.appendChild(removeButton);
 
   taskCartElement.appendChild(cartElement);
+
+  //clear the taskform after submission
+  taskInput.value = "";
 }
 
-function markTaskAsDone () {
+function markTaskAsDone() {
   const taskElement = this.parentNode.querySelector("span");
   if (taskElement.style.textDecoration === "line-through") {
     taskElement.style.textDecoration = "none";
@@ -51,7 +63,7 @@ function markTaskAsDone () {
   }
 }
 
-function removeTask () {
+function removeTask() {
   const element = this.parentNode; 
   element.parentNode.removeChild(element); 
 }

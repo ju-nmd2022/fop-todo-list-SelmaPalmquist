@@ -46,7 +46,9 @@ h1{
     font-size: 20px;
     font-weight: bold;
     margin-top: 10px;
-    border: solid;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
     margin-left: 50px;
 
 }
@@ -59,7 +61,7 @@ h2{
     font-weight: bold;  
 }
 
-.container{
+.task-list-lineup{
     margin-top: 80px;
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -68,90 +70,21 @@ h2{
 .done-button{
     background-color: rgb(164, 248, 151);
     width: 100px;
-    margin-left: 100px;
+    margin-right: 200px;
     border: none;
     border-radius: 5px;
     padding: 5px;
+    position: relative;
 
 }
 
 .remove-button{
     background-color: rgb(253, 126, 126);
     width: 100px;
-    margin-left: 10px;
+    margin-right: 100px;
     border: none;
     border-radius: 5px;
     padding: 5px;
+    position: relative;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* code borrowed from website - BEGIN
- Source: "How TO - Create a To Do List",
- https://www.w3schools.com/howto/howto_js_todolist.asp
-*/
-ul {
-    margin: 0;
-    padding: 0;
-  }
-
-  ul li {
-    cursor: pointer;
-    padding: 10px 8px 10px 10px;
-    background: #ffffff;
-    font-size: 14px;
-    list-style-type: none;
-    border-radius: 5px;
-    margin-bottom: 3px;
-    margin-left: 200px;
-    width: 700px;
-  }
-
-  ul li:hover {
-    background: #ddd;
-  }
-
-ul li.checked {
-    background: #888;
-    color: #fff;
-    text-decoration: line-through;
-  }
-/* code borrowed from website - END */
-
-.del-button{
-    background-color: rgb(244, 194, 194);
-    width: 100px;
-    height: 35px;
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-    margin-left: 5%;  
-}
-
-/* Not sure whether to have it be a button or not
-<button class="done-button">Done</button>
-
-.done-button{
-    background-color: rgb(220, 247, 209);
-    width: 100px;
-    height: 35px;
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-}
-*/
-
-
-
-
-  

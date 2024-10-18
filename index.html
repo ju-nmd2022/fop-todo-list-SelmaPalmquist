@@ -5,33 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    
 
     <title>To-Do List</title>
 </head>
 
 <body> 
     <header>
-        <h1> TO-DO LIST</h1>
+        <h1>TO-DO LIST</h1>
     </header>
-    <div> 
-        <form id="submitTask"> 
-            <input class="task-form" id="task-form" type = "text" placeholder="What do you want to do today?"> 
-            <button type="submit" class="add-button" id="add-button" value="Add task">Add task</button>
+    <div class="create-new-task"> 
+        <form id="task-form"> 
+            <input class="task-form" id="task-input" type = "text" placeholder="What do you want to do today?"> 
+            <button type="button" class="add-button" id="add-button">Add task</button>
         </form>
     </div>
-
 <br />
-    <main class="container">
+    <main class="task-list-lineup">
         <h2>TASKS</h2> 
-            <br />
-             <article class="task-list" id="task-list"></article> <br/>
-             <article class="task-cart" id="task-cart"></article> 
+        <br />
+        <article class="task-list" id="task-list"></article> 
+        <br/>
+        <article class="task-cart" id="task-cart"></article> 
     </main>
 
         <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
