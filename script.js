@@ -1,17 +1,10 @@
 //followed the Fruit Shop example provided by Garrit Shaap on https://pixelkind.github.io/foundationsofprogramming/programming/ 
-const tasks = [];
 const taskListElement = document.getElementById("task-list");
 let taskCartElement = document.getElementById("task-cart");
 const taskInput = document.getElementById("task-input");
 const addTaskButton = document.getElementById("add-button");
 
 let taskList = [];
-
-for (let task of tasks) {
-  const taskElement = document.createElement("div");
-  taskElement.innerText = task;
-  taskListElement.appendChild(taskElement);
-}
 
 addTaskButton.addEventListener("click", addToTaskList);
 
@@ -33,6 +26,13 @@ function addToTaskList(event) {
   const spanElement = document.createElement("span");
   spanElement.innerText = taskText;
   cartElement.appendChild(spanElement);
+
+   //remove button
+   const removeButton = document.createElement("button");
+   removeButton.innerText = "Remove";
+   removeButton.classList.add("remove-button");
+   removeButton.onclick = removeTask;
+   cartElement.appendChild(removeButton);
   
   //done button
   const doneButton = document.createElement("button");
@@ -41,12 +41,7 @@ function addToTaskList(event) {
   doneButton.onclick = markTaskAsDone;
   cartElement.appendChild(doneButton);
 
-  //remove button
-  const removeButton = document.createElement("button");
-  removeButton.innerText = "Remove";
-  removeButton.classList.add("remove-button");
-  removeButton.onclick = removeTask;
-  cartElement.appendChild(removeButton);
+ 
 
   taskCartElement.appendChild(cartElement);
 
