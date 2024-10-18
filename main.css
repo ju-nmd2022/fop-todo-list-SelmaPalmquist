@@ -10,12 +10,17 @@ body {
     height: auto;
 }
 
-h1{
+h1, h2{
     color: #2b4861;
     font-size: 70px;
     display: flex;
     justify-content: center;
-    }
+}
+
+h2{
+    font-size: 20px;
+    margin-top: -20px;
+}
 
 
 .task-form{
@@ -55,19 +60,22 @@ h1{
 
 }
 
-h2{
+h3{
     color: #2b4861; 
     font-size: 35px;
-    margin-left: 200px;
-    margin-top: 50px;
+    margin-left: 70px;
     font-weight: bold;  
 }
 
 .task-list-lineup{
-    margin-top: 80px;
+    margin-top: 60px;
     display: grid;
     margin-left: 100px;
     margin-right: 150px;
+}
+
+.task-list{
+    margin-top: -40px;
 }
 
 .done-button{

@@ -1,9 +1,22 @@
-//followed the Fruit Shop example provided by Garrit Shaap on https://pixelkind.github.io/foundationsofprogramming/programming/ 
+//followed the Fruit Shop example provided by Garrit Shaap on https://pixelkind.github.io/foundationsofprogramming/programming/ and https://www.youtube.com/watch?v=SeKQSQDUMDQ as well as ChatGPT as help for error checking
 let taskListElement = document.getElementById("task-list");
 const taskInput = document.getElementById("task-input");
 const addTaskButton = document.getElementById("add-button");
-
 let taskList = [];
+
+function displayDate () {
+  let date = new Date()
+  date = date.toString().split(" ");
+  console.log(date);
+  document.querySelector("#date").innerHTML = "Date:" + " " + date[1] + " " + date[2] + " " + date[3];
+}
+
+window.onload = function(){
+  displayDate();
+}
+
+
+
 
 addTaskButton.addEventListener("click", addToTaskList);
 
