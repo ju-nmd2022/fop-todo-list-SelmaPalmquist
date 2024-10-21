@@ -1,8 +1,10 @@
-//followed the Fruit Shop example provided by Garrit Shaap on https://pixelkind.github.io/foundationsofprogramming/programming/ and https://www.youtube.com/watch?v=SeKQSQDUMDQ as well as ChatGPT as help for error checking
-let taskListElement = document.getElementById("task-list");
+//followed the Fruit Shop example provided by Garrit Shaap on https://pixelkind.github.io/foundationsofprogramming/programming/ and 
+//https://www.youtube.com/watch?v=SeKQSQDUMDQ and https://www.w3schools.com/jsref/prop_win_localstorage.asp  
+//for help with localStorage as well as ChatGPT as help for error checking
+const taskListElement = document.getElementById("task-list");
 const taskInput = document.getElementById("task-input");
 const addTaskButton = document.getElementById("add-button");
-let taskList = [];
+let taskList = JSON.parse(localStorage.getItem("tasks")) || [];
 
 function displayDate () {
   let date = new Date()
@@ -13,10 +15,8 @@ function displayDate () {
 
 window.onload = function(){
   displayDate();
+  loadTasks();
 }
-
-
-
 
 addTaskButton.addEventListener("click", addToTaskList);
 
@@ -31,7 +31,15 @@ function addToTaskList(event) {
   }
 
   taskList.push(taskText);
+  saveTasksInLocalStorage();
 
+  readTask(taskText);
+
+  //clear the taskform after submission
+  taskInput.value = "";
+}
+
+function readTask(taskText) {
   const listElement = document.createElement("div");
   listElement.classList.add("task-list-element");
 
@@ -43,7 +51,9 @@ function addToTaskList(event) {
    const removeButton = document.createElement("button");
    removeButton.innerText = "Remove";
    removeButton.classList.add("remove-button");
-   removeButton.onclick = removeTask;
+   removeButton.onclick = function() {
+    removeTasksFromLocalStorage(taskText, listElement);
+   };
    listElement.appendChild(removeButton);
   
   //done button
@@ -54,11 +64,28 @@ function addToTaskList(event) {
   listElement.appendChild(doneButton);
 
   taskListElement.appendChild(listElement);
-
-  //clear the taskform after submission
-  taskInput.value = "";
 }
 
+//reads every individual task from the taskList
+function loadTasks(){
+  taskList.forEach(task => {
+    readTask(task);
+  });
+}
+
+//save the tasks in local storage, as the name suggests
+function saveTasksInLocalStorage(){
+  localStorage.setItem("tasks", JSON.stringify(taskList))
+}
+
+//remove the tasks from local storage, as the name suggests
+function removeTasksFromLocalStorage(taskText, element){
+  taskList = taskList.filter(task => task !== taskText);
+  saveTasksInLocalStorage();
+  element.remove();
+}
+
+//function that strikes out the text on click of done button, if its not already, and vice versa
 function markTaskAsDone() {
   const taskElement = this.parentNode.querySelector("span");
   if (taskElement.style.textDecoration === "line-through") {
@@ -67,9 +94,3 @@ function markTaskAsDone() {
     taskElement.style.textDecoration = "line-through";
   }
 }
-
-function removeTask() {
-  const element = this.parentNode; 
-  element.parentNode.removeChild(element); 
-}
-
