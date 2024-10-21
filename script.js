@@ -30,29 +30,38 @@ function addToTaskList(event) {
     return;
   }
 
-  taskList.push(taskText);
+  const task = {
+    text: taskText,
+    done: false
+  };
+
+  taskList.push(task);
   saveTasksInLocalStorage();
 
-  readTask(taskText);
+  readTask(task);
 
   //clear the taskform after submission
   taskInput.value = "";
 }
 
-function readTask(taskText) {
+function readTask(task) {
   const listElement = document.createElement("div");
   listElement.classList.add("task-list-element");
 
   const spanElement = document.createElement("span");
-  spanElement.innerText = taskText;
+  spanElement.innerText = task.text;
   listElement.appendChild(spanElement);
+
+   if (task.done) {
+    spanElement.style.textDecoration = "line-through";
+  }
 
    //remove button
    const removeButton = document.createElement("button");
    removeButton.innerText = "Remove";
    removeButton.classList.add("remove-button");
    removeButton.onclick = function() {
-    removeTasksFromLocalStorage(taskText, listElement);
+    removeTasksFromLocalStorage(task, listElement);
    };
    listElement.appendChild(removeButton);
   
@@ -60,7 +69,9 @@ function readTask(taskText) {
   const doneButton = document.createElement("button");
   doneButton.innerText = "Done";
   doneButton.classList.add("done-button");
-  doneButton.onclick = markTaskAsDone;
+  doneButton.onclick = function() {
+    markTaskAsDone(task, spanElement);
+  };
   listElement.appendChild(doneButton);
 
   taskListElement.appendChild(listElement);
@@ -75,22 +86,26 @@ function loadTasks(){
 
 //save the tasks in local storage, as the name suggests
 function saveTasksInLocalStorage(){
-  localStorage.setItem("tasks", JSON.stringify(taskList))
+  localStorage.setItem("tasks", JSON.stringify(taskList));
 }
 
 //remove the tasks from local storage, as the name suggests
-function removeTasksFromLocalStorage(taskText, element){
-  taskList = taskList.filter(task => task !== taskText);
-  saveTasksInLocalStorage();
+function removeTasksFromLocalStorage(task, element){
+  taskList = taskList.filter(t => t.text !== task.text);
   element.remove();
+  saveTasksInLocalStorage();
 }
 
 //function that strikes out the text on click of done button, if its not already, and vice versa
-function markTaskAsDone() {
-  const taskElement = this.parentNode.querySelector("span");
-  if (taskElement.style.textDecoration === "line-through") {
-    taskElement.style.textDecoration = "none";
+function markTaskAsDone(task, spanElement) {
+  task.done = !task.done;
+  if (task.done) {
+    spanElement.style.textDecoration = "line-through";
   } else {
-    taskElement.style.textDecoration = "line-through";
+    spanElement.style.textDecoration = "none";
   }
+
+  saveTasksInLocalStorage(); 
 }
+
+
