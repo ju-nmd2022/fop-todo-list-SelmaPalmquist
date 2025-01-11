@@ -25,16 +25,19 @@ function addToTaskList(event) {
 
   const taskText = taskInput.value.trim();
 
+  //if tasktext is nonexsistent an alert is given
   if(taskText === "") {
     alert("Please enter a task.")
     return;
   }
 
+  //creates an object named task with the properties text and done
   const task = {
     text: taskText,
     done: false
   };
 
+  //adds task object to the array taskList
   taskList.push(task);
   saveTasksInLocalStorage();
 
